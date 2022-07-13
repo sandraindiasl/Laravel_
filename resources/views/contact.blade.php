@@ -3,7 +3,7 @@
 @section('title', 'Contact')
 
 @section('content')
-    <h1>Contact</h1>
+    <h1>{{ __('Contact') }}</h1>
     <form method="POST" action="{{route('contact')}}">
         @csrf
         <input name="name" placeholder="Nombre..." value="{{ old('name')}}"><br>
