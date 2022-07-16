@@ -42,19 +42,20 @@ Route::get('/', function() {
 */
 
 /*Route::get('/', function() {
-    $nombre = "Dani";
+    $nombre = "Sandra";
     return view('home', compact('nombre'));
 })->name('home');
 */
 
 
 Route::view('/', 'home')->name('home');
-Route::view('/about', 'about')->name('about');
-Route::get('/portfolio', 'PortfolioController@index')->name('portfolio.index');
+Route::view('/quienes-somos', 'about')->name('about');
 
-Route::view('/contact', 'contact')->name('contact');
+Route::get('/portafolio', 'ProjectController@index')->name('projects.index');
+Route::get('/portafolio/{id}', 'ProjectController@show')->name('projects.show');
 
-Route::post('contact', 'MessagesController@store');
+Route::view('/contacto', 'contact')->name('contact');
+Route::post('contact', 'MessagesController@store')->name('messages.store');
 
 //Route::resource('projects', 'PortfolioController');
 

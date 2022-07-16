@@ -3,7 +3,7 @@
 <head>
     <title>@yield('title', 'Aprendible')</title>
     <style>
-        .active a{
+        .active a {
             color: red;
             text-decoration: none;
         }
