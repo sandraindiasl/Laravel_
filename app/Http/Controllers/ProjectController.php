@@ -18,14 +18,34 @@ class ProjectController extends Controller
             'projects' => Project::latest()->paginate()
         ]);
     }
-    public function show($id)
+    public function show(Project $project)
     {
         return view('projects.show',
             [
-                'project' => Project::findOrFail($id)
+                'project' => $project
             ]);
     }
 
+    public function create()
+    {
+        return view('projects.create');
+    }
+
+    public function store()
+    {
+
+        $fields = request()->validate([
+            'title' => 'required',
+            'url' => 'required',
+            'description' => 'required',
+
+        ]);
+
+        Project::create($fields);
+
+        return redirect()->route('projects.index');
+
+    }
 
 
 }
